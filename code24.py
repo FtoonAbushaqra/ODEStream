@@ -20,7 +20,7 @@ use_cuda = torch.cuda.is_available()
 lag = 24
 datasetnane = 'ETTm1' #ETTm1 , ETTh1, ETTh2, WTH
 task = 'm' #'ms' , 'm', 's'
-flag = 'stream' # initial, stream
+flag = 'stream' #initial, stream
 
 hidden_dim = 64
 latent_dim = 64
@@ -29,13 +29,15 @@ savedmodelpath = "models/"
 resultpath = "results/"
 mempath = "memory/"
 num_layers = 2
-input_size =7
+
+
 lr = 0.0001
-lossfun = 4
+lossfun = 3 #1,2,3
 reguler = 't' # t rguler or f irreguler
 # loss 1 : 0.8 * ((yr - x_p) ** 2).sum(-1).sum(0) / noise_std ** 2 + kl_loss + l1
 #loss 2 : 0.8 * ((yr - x_p) ** 2).sum(-1).sum(0) / noise_std ** 2 + kl_loss
 #loss 3 :mse
+
 if datasetnane == 'ECL':
     if task == 'm':
         output_size = 321
