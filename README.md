@@ -1,6 +1,6 @@
 # ODEStream: A Buffer-Free Online Learning Framework with ODE-based Adaptor for Streaming Time Series Forecasting
 
-**Note:** We are still working on organizing this code. Some features and documentation may be incomplete or subject to change.
+**Note:**  Some features and documentation may be subject to change.
 
 
 This repository contains the code for our state-of-the-art ODE-based model for continual learning. The code is written in PyTorch and follows the methodology described in our paper
