@@ -18,7 +18,7 @@ use_cuda = torch.cuda.is_available()
 
 
 lag = 24
-datasetnane = 'ETTm1' #ETTm1 , ETTh1, ETTh2, WTH
+datasetname = 'ETTm1' #ETTm1 , ETTh1, ETTh2, WTH
 task = 'm' #'ms' , 'm', 's'
 flag = 'stream' #initial, stream
 
@@ -38,14 +38,14 @@ reguler = 't' # t rguler or f irreguler
 #loss 2 : 0.8 * ((yr - x_p) ** 2).sum(-1).sum(0) / noise_std ** 2 + kl_loss
 #loss 3 :mse
 
-if datasetnane == 'ECL':
+if datasetname == 'ECL':
     if task == 'm':
         output_size = 321
         input_size = 321
     if  task == 's':
         output_size = 1
         input_size = 1
-if datasetnane in ['ETTm1', 'ETTh1', 'ETTh2' ]:
+if datasetname in ['ETTm1', 'ETTh1', 'ETTh2' ]:
     if task == 'm':
         output_size = 7
         input_size = 7
@@ -56,7 +56,7 @@ if datasetnane in ['ETTm1', 'ETTh1', 'ETTh2' ]:
         output_size = 1
         input_size = 1
 
-if datasetnane == 'WTH':
+if datasetname == 'WTH':
     if task == 'm':
         output_size = 12
         input_size = 12
@@ -87,7 +87,7 @@ optim = torch.optim.Adam(vae.parameters(), betas=(0.9, 0.999), lr=0.001)
 
 
 if flag=='initial':
-    x, y, val_x, val_y, samp_ts, val_samp_ts = get_data(datasetnane, flag, lag, task, reguler)
+    x, y, val_x, val_y, samp_ts, val_samp_ts = get_data(datasetname, flag, lag, task, reguler)
     best_val_loss = float('inf')
     for epoch_idx in range(n_epochs):
         losses1 = []
@@ -154,7 +154,7 @@ if flag=='initial':
     print(np.mean(losses1), np.mean(losses2), np.mean(losses3))
     print(np.mean(vali_loss), np.mean(vmse))
 
-    outputn= f"{datasetnane}_{task}_{flag}_{hidden_dim}_{latent_dim}_{n_epochs}_{lossfun}_{reguler}"
+    outputn= f"{datasetname}_{task}_{flag}_{hidden_dim}_{latent_dim}_{n_epochs}_{lossfun}_{reguler}"
     torch.save(vae.state_dict(), savedmodelpath + outputn +".pth")
 
 def calculate_memory_usage():
@@ -170,14 +170,14 @@ def calculate_memory_usage():
     memory_info_str = f"Memory Usage: {memory_usage} bytes\n"
     memory_info_str += f"Current Memory Usage: {current_memory} bytes\n"
     memory_info_str += f"Current Memory Usage: {current_memory / (1024 ** 3):.2f} GB\n"
-    filename = f"{datasetnane}__memory_usage.txt"
+    filename = f"{datasetname}__memory_usage.txt"
     with open(mempath+filename, "a") as file:
         file.write(memory_info_str)
 
 
 
 if flag=='stream':
-    x, y,  samp_ts = get_data(datasetnane, flag, lag, task,reguler)
+    x, y,  samp_ts = get_data(datasetname, flag, lag, task,reguler)
     lstm = LSTMModel(input_size, hidden_dim, num_layers, output_size, lag)
     cr = nn.MSELoss()
     import torch.optim as optim
@@ -244,7 +244,7 @@ if flag=='stream':
         p = concatenated_output.reshape(output_size)
         yt = yr.reshape(output_size)
         print(f'Batch [{batch_idx + 1}], Loss: {loss.item():.4f},  mse: {MSEV.item():.4f}')
-        outputp = f"pre3_{datasetnane}_{task}_{flag}_{hidden_dim}_{latent_dim}_{lr}_{lossfun}_{reguler}"
+        outputp = f"pre3_{datasetname}_{task}_{flag}_{hidden_dim}_{latent_dim}_{lr}_{lossfun}_{reguler}"
         with open(os.path.join(resultpath, f"{outputp}_Pred.csv"), 'a', newline='') as file:
             file.write(','.join(map(str, (p.detach().numpy()))) + '\n')
         with open(resultpath+outputp+"_True.csv", 'a', newline='') as file1:
