@@ -3,7 +3,7 @@
 **Note:** We are still working on organizing this code. Some features and documentation may be incomplete or subject to change.
 
 
-This repository contains the code for our state-of-the-art ODE-based model for countinual learning. The code is written in PyTorch and follows the methodology described in our paper
+This repository contains the code for our state-of-the-art ODE-based model for continual learning. The code is written in PyTorch and follows the methodology described in our paper
 
 
 ## Model Overview
@@ -15,28 +15,23 @@ This repository contains the code for our state-of-the-art ODE-based model for c
 ## Datasets
 All datasets used are in the Dataset folder. 
 
-The learn representation generated using ODE-RNN is saved in `DataRep/` fplder. 
-To regenerate the we recommend you follwoing the instructions of the original code repository
-
-Tha attention and payramid module codes are in scr. 
+## Requirements
+- pytorch == 1.12
 
 
-to generate the final prediction 
-Run SeqLink.py
+## Arguments
+- lag --> lockback window size
+- datasetname: 'ECL, 'ETTm1', 'ETTh1', 'ETTh2', 'WTH' --> dataste name 
+- task: 's', 'ms' , 'm'  
+- flag:  'initial', 'stream'  --> initial training ( model warm-up), or online learning 
+- savedmodelpath = "models/"
+- resultpath = "results/"
+- mempath = "memory/"
+- reguler = 't'
 
 
-## Repository Structure
 
-- `src/`: Contains the source code for the model, attention mechanism, and pyramid sorting.
-- `data/`: Example data files used for training and testing.
-- `notebooks/`: Jupyter notebooks demonstrate the use of the model and visualize results.
-- `docs/`: Documentation and additional resources.
 
-## Installation
 
-To install the required dependencies, run:
-
-```bash
-pip install -r requirements.txt
 
 
