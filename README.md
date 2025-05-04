@@ -6,7 +6,8 @@
 This repository contains the code for our state-of-the-art ODE-based model for continual learning. The code is written in PyTorch and follows the methodology described in our paper.
 
 **Paper**: [ODEStream]([https://link.to/your-paper](https://arxiv.org/abs/2411.07413))
-Reviewed on OpenReview: [https://openreview.net/forum?id=TWOTKhwU5n](https://openreview.net/forum?id=TWOTKhwU5n)
+
+**Reviewed on OpenReview**: [https://openreview.net/forum?id=TWOTKhwU5n](https://openreview.net/forum?id=TWOTKhwU5n)
 
 
 ## Abstract
