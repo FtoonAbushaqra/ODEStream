@@ -40,7 +40,7 @@ All datasets used are in the Dataset folder.
 
 ## Results
 
-### Table: Cumulative MSE Results
+### Cumulative MSE Results
 
 *Cumulative MSE results across several datasets using ODEStream and baselines for different tasks.*  
 **Notation**: • univariate→univariate, * multivariate→univariate, ^ multivariate→multivariate
@@ -55,7 +55,7 @@ All datasets used are in the Dataset folder.
 | **ODEStream** | **0.1173** | 4.095    | **0.0594** | **0.1050** | **0.1640** | **0.1879** | **0.0625** | 0.2178     | **0.0441** | 0.2220     |
 
 
-### Table: Multi-horizon Prediction Results
+### Multi-horizon Prediction Results
 
 *Mean squared error (MSE) results across different forecasting steps (1, 7, and 24) for various datasets using ODEStream.*
 
@@ -63,9 +63,9 @@ All datasets used are in the Dataset folder.
 |-------|--------|--------|--------|--------|--------|
 | 1     | 0.1173 | 0.0594 | 0.1640 | 0.0625 | 0.0441 |
 | 7     | 0.4030 | 0.1006 | 0.4009 | 0.5997 | 0.1089 |
-| 24    | 1.0030 | 0.1909 | 0.3751 | 0.9186 | 0.1330 |
+| 24    | 1.0030 | 0.1909 | 0.3751 | 0.09186 | 0.1330 |
 
-### Table: Ablation Study Results
+### Ablation Study Results
 
 *MSE comparison showing the effect of different Temporal Input Layers (TILs) across datasets.*
 
