@@ -33,5 +33,28 @@ All datasets used are in the Dataset folder.
 
 
 
+## Citation
+
+If you use this code, please cite our paper:
+
+```bibtex
+@article{DBLP:journals/tmlr/Abushaqra0RS24,
+  author       = {Futoon M. Abushaqra and
+                  Hao Xue and
+                  Yongli Ren and
+                  Flora D. Salim},
+  title        = {SeqLink: {A} Robust Neural-ODE Architecture for Modelling Partially
+                  Observed Time Series},
+  journal      = {Trans. Mach. Learn. Res.},
+  volume       = {2024},
+  year         = {2024},
+  url          = {https://openreview.net/forum?id=WCUT6leXKf},
+  timestamp    = {Thu, 08 Aug 2024 15:22:39 +0200},
+  biburl       = {https://dblp.org/rec/journals/tmlr/Abushaqra0RS24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+```
+
+
 
 
