@@ -38,6 +38,43 @@ All datasets used are in the Dataset folder.
 - mempath = "memory/"
 - reguler = 't'
 
+## Results
+
+### Table: Cumulative MSE Results
+
+*Cumulative MSE results across several datasets using ODEStream and baselines for different tasks.*  
+**Notation**: • univariate→univariate, * multivariate→univariate, ^ multivariate→multivariate
+
+| Method        | ECL•       | ECL^     | ETTh1\*    | ETTh1^     | ETTh2\*    | ETTh2^     | ETTm1\*    | ETTm1^     | WTH\*      | WTH^       |
+| ------------- | ---------- | -------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
+| RNN           | 0.576      | 33.84    | 43.36      | 1.2653     | 37.35      | 6.3711     | 41.08      | 0.4700     | 0.1636     | 0.4616     |
+| ER            | 2.8142     | 2.8359   | 1.9785     | 0.2349     | 6.7558     | 0.5044     | 3.0550     | 0.0820     | 0.3138     | 0.1788     |
+| DER++         | 2.8107     | **2.81** | 1.9712     | 0.2400     | 6.7380     | 0.5042     | 3.0467     | **0.0808** | 0.3097     | **0.1717** |
+| FSnetNaive    | 2.9943     | 3.0533   | 2.0010     | 0.2296     | 6.7749     | 0.5033     | 3.0595     | 0.1143     | 0.3843     | 0.2462     |
+| FSnet         | 2.8048     | 3.6002   | 1.9342     | 0.2814     | 6.6810     | 0.4388     | 3.0467     | 0.0866     | 0.3096     | 0.1633     |
+| **ODEStream** | **0.1173** | 4.095    | **0.0594** | **0.1050** | **0.1640** | **0.1879** | **0.0625** | 0.2178     | **0.0441** | 0.2220     |
+
+
+### Table: Multi-horizon Prediction Results
+
+*Mean squared error (MSE) results across different forecasting steps (1, 7, and 24) for various datasets using ODEStream.*
+
+| Steps | ECL    | ETTh1  | ETTh2  | ETTm1  | WTH    |
+|-------|--------|--------|--------|--------|--------|
+| 1     | 0.1173 | 0.0594 | 0.1640 | 0.0625 | 0.0441 |
+| 7     | 0.4030 | 0.1006 | 0.4009 | 0.5997 | 0.1089 |
+| 24    | 1.0030 | 0.1909 | 0.3751 | 0.9186 | 0.1330 |
+
+### Table: Ablation Study Results
+
+*MSE comparison showing the effect of different Temporal Input Layers (TILs) across datasets.*
+
+| Method      | ECL    | ETTh1  | ETTh2  | ETTm1  | WTH    |
+|-------------|--------|--------|--------|--------|--------|
+| W/O TIL₁    | 0.299  | 0.127  | 0.372  | 0.100  | 0.200  |
+| W/O TIL₂    | 0.369  | 0.084  | 0.347  | 0.098  | 0.178  |
+| W/ TIL₁     | 0.119  | **0.054** | 0.176  | 0.090  | 0.060  |
+| ODEStream   | **0.117** | 0.059  | **0.164** | **0.062** | **0.044** |
 
 
 ## Citation
